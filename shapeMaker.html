@@ -7,5 +7,28 @@
     <body>
         <h2>Create A Shape</h2>
         <a href="index.html"><p>Home</p></a>
+
+        <p>Choose a Common Shape</p>
+        <button>Square</button>
+        <button>Circle</button>
+        <br><br>
+
+        <form id="shape-form">
+            <label for="base-color">Base Color:
+            <input type="color"/></label><br>
+
+            <label for="pattern-color">Pattern Color
+            <input type="color"/></label><br>
+
+            <label for="pattern-type">Pattern
+            <select id="pattern-type">
+                <option id="solid">Solid</option>
+                <option id="duocolor">Duocolor</option>
+                <option id="polkadot">Polkadot</option>
+            </select></label>
+            <br><br>
+
+            <input type="submit" value="Preview">
+        </form>
     </body>
 </html>
