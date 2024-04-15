@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSS Petsite Information</title>
+    </head>
+    <body>
+        <h1>Color Mixing for Breeding</h1>
+        <a href="index.html"><p>Home</p></a>
+
+        <div id="parentOne" style="background-color: rgb(255, 0, 0); height: 75px; width: 75px; margin: 30px;"></div>
+        <div id="parentTwo" style="background-color: rgb(255, 255, 0); height: 75px; width: 75px; margin: 30px;"></div>
+
+        <h4>Child</h4>
+        <div id="child" style="background-color: rgb(0, 0, 0); height: 75px; width: 75px; margin: 30px;"></div>
+
+        <p id="test"></p>
+
+        <script>
+            parentOne = document.getElementById("parentOne");
+            parentTwo = document.getElementById("parentTwo");
+            child = document.getElementById("child");
+            test = document.getElementById("test");
+
+            function colorStringToArray(rgbString) {
+                colorString = rgbString.substr(3);
+
+                colorString = colorString.replace("(", "");
+                colorString = colorString.replace(")", "");
+                colorString = colorString.replaceAll(" ", "");
+
+                return colorString.split(",");
+            }
+
+            parentOneRGB = colorStringToArray(parentOne.style.backgroundColor);
+            parentTwoRGB = colorStringToArray(parentTwo.style.backgroundColor);
+
+            childRGB = [(parseInt(parentOneRGB[0]) + parseInt(parentTwoRGB[0])) / 2, 
+                        (parseInt(parentOneRGB[1]) + parseInt(parentTwoRGB[1])) / 2,
+                        (parseInt(parentOneRGB[2]) + parseInt(parentTwoRGB[2])) / 2];
+
+            childColorStr = "rgb(" + childRGB[0] + ", " + childRGB[1] + ", " + childRGB[2] + ")";         
+            test.innerHTML = childColorStr;
+
+            child.style.backgroundColor = childColorStr;
+        </script>
+    </body>
+</html>

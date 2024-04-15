@@ -1,0 +1,73 @@
+.shape {
+    height: 100px;
+    width: 100px;
+    margin: 25px auto;
+    text-align: center;
+}
+
+.square {
+    background-color: red;
+}
+
+.circle {
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 100px solid yellow;
+}
+
+.trapezoid {
+    height: 0;
+    border-bottom: 100px solid greenyellow;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+}
+
+.diamond {
+    background-color: magenta;
+    rotate: 45deg;
+}
+
+.para {
+    background-color: cyan;
+    transform: skew(25deg);
+}
+
+td {
+    width: 150px;
+    height: 150px;
+}
+
+tr, td {
+    border: solid black 2px;
+    text-align: center;
+}
+
+.duocolor.square {
+    background-image: linear-gradient(red 0%, red 50%, orange 50%, orange 100%)
+}
+
+.duocolor.circle {
+    background-image: linear-gradient(blue 0%, blue 50%, aqua 50%, aqua 100%)
+}
+
+.polkadot {
+    background-image: radial-gradient(#000000 20%,transparent 20%), 
+        radial-gradient(#000000 20%, transparent 20%);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+}
+
+.hollow {
+    width: 75px;
+    height: 75px;
+    background-color: orange;
+    margin: auto;
+    position: relative;
+}
