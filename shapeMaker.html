@@ -50,6 +50,7 @@
 
             let detailForm = document.getElementById("shape-form");
             let previewShapeBtn = document.getElementById("preview-btn");
+            let cssVariables = document.querySelector(":root");
 
             let test = document.getElementById("quicktest");
 
@@ -73,7 +74,24 @@
             }
 
             function designShape(){
-                previewShape.style.backgroundColor = document.forms["shape-form"]["base-color"].value;
+                cssVariables.style.setProperty("--backgroundColor", document.forms["shape-form"]["base-color"].value);
+                cssVariables.style.setProperty("--mainPatternColor", document.forms["shape-form"]["pattern-color"].value);
+
+                let patternType = document.forms["shape-form"]["pattern-type"].value.toLowerCase();
+
+                switch(patternType) {
+                    case "solid":
+                        previewShape.classList.remove("duocolor", "polkadot");
+                        break;
+                    case "duocolor":
+                        previewShape.classList.remove("polkadot");
+                        previewShape.classList.add("duocolor");
+                        break;
+                    case "polkadot": 
+                        previewShape.classList.remove("duocolor");
+                        previewShape.classList.add("polkadot");
+                        break;
+                }
             }
 
             squareChosen.addEventListener("click", function(){ changePreviewShape("square"); });
