@@ -3,14 +3,19 @@
     <head>
         <title>CSS Petsite Information</title>
         <link rel="stylesheet" href="style.css">
+        <style>
+            #shape-form, #preview {
+                visibility: hidden;
+            }
+        </style>
     </head>
     <body>
         <h2>Create A Shape</h2>
         <a href="index.html"><p>Home</p></a>
 
         <p>Choose a Common Shape</p>
-        <button>Square</button>
-        <button>Circle</button>
+        <button id="square">Square</button>
+        <button id="circle">Circle</button>
         <br><br>
 
         <form id="shape-form">
@@ -28,7 +33,44 @@
             </select></label>
             <br><br>
 
-            <input type="submit" value="Preview">
+            <input type="submit" value="Preview" id="preview-btn">
         </form>
+
+        <div id="preview">
+            <div id="preview-shape" class="shape"></div>
+        </div>
+
+        <script>
+            squareChosen = document.getElementById("square");
+            circleChosen = document.getElementById("circle");
+
+            previewContainer = document.getElementById("preview");
+            previewShape = document.getElementById("preview-shape");
+
+            detailForm = document.getElementById("shape-form");
+            previewShapeBtn = document.getElementById("preview-btn");
+
+            // Makes previewContainer and form visible
+            // If previewShape already has the desired class, do nothing.
+            // If previewShape has an undesired shape class, remove that class.
+            // If previewShape doesn't have the desired class, add the class to classList.
+            function changePreviewShape(shape) {
+                previewContainer.style.visibility = "visible";
+                detailForm.style.visibility = "visible";
+                
+                if(shape == "circle" && previewShape.classList.contains("square")) {
+                    previewShape.classList.remove("square");
+                } else if(shape == "square" && previewShape.classList.contains("circle")) {
+                    previewShape.classList.remove("circle");
+                }
+
+                if(!previewShape.classList.contains(shape)) {
+                    previewShape.classList.add(shape);
+                }
+            }
+
+            squareChosen.addEventListener("click", function(){ changePreviewShape("square"); });
+            circleChosen.addEventListener("click", function(){ changePreviewShape("circle"); });
+        </script>
     </body>
 </html>
