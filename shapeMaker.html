@@ -18,7 +18,7 @@
         <button id="circle">Circle</button>
         <br><br>
 
-        <form id="shape-form">
+        <form id="shape-form" name="shape-form">
             <label for="base-color">Base Color:
             <input type="color"/></label><br>
 
@@ -32,23 +32,22 @@
                 <option id="polkadot">Polkadot</option>
             </select></label>
             <br><br>
-
-            <input type="submit" value="Preview" id="preview-btn">
         </form>
 
         <div id="preview">
+            <button id="preview-btn">Preview</button>
             <div id="preview-shape" class="shape"></div>
         </div>
 
         <script>
-            squareChosen = document.getElementById("square");
-            circleChosen = document.getElementById("circle");
+            let squareChosen = document.getElementById("square");
+            let circleChosen = document.getElementById("circle");
 
-            previewContainer = document.getElementById("preview");
-            previewShape = document.getElementById("preview-shape");
+            let previewContainer = document.getElementById("preview");
+            let previewShape = document.getElementById("preview-shape");
 
-            detailForm = document.getElementById("shape-form");
-            previewShapeBtn = document.getElementById("preview-btn");
+            let detailForm = document.getElementById("shape-form");
+            let previewShapeBtn = document.getElementById("preview-btn");
 
             // Makes previewContainer and form visible
             // If previewShape already has the desired class, do nothing.
