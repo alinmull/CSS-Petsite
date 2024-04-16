@@ -20,13 +20,13 @@
 
         <form id="shape-form" name="shape-form">
             <label for="base-color">Base Color:
-            <input type="color"/></label><br>
+            <input type="color" id="base-color" name="base-color"/></label><br>
 
             <label for="pattern-color">Pattern Color
-            <input type="color"/></label><br>
+            <input type="color" id="pattern-color" name="pattern-color"/></label><br>
 
             <label for="pattern-type">Pattern
-            <select id="pattern-type">
+            <select id="pattern-type" name="pattern-type">
                 <option id="solid">Solid</option>
                 <option id="duocolor">Duocolor</option>
                 <option id="polkadot">Polkadot</option>
@@ -39,6 +39,8 @@
             <div id="preview-shape" class="shape"></div>
         </div>
 
+        <p id="quicktest"></p>
+
         <script>
             let squareChosen = document.getElementById("square");
             let circleChosen = document.getElementById("circle");
@@ -48,6 +50,8 @@
 
             let detailForm = document.getElementById("shape-form");
             let previewShapeBtn = document.getElementById("preview-btn");
+
+            let test = document.getElementById("quicktest");
 
             // Makes previewContainer and form visible
             // If previewShape already has the desired class, do nothing.
@@ -68,8 +72,14 @@
                 }
             }
 
+            function designShape(){
+                previewShape.style.backgroundColor = document.forms["shape-form"]["base-color"].value;
+            }
+
             squareChosen.addEventListener("click", function(){ changePreviewShape("square"); });
             circleChosen.addEventListener("click", function(){ changePreviewShape("circle"); });
+
+            previewShapeBtn.addEventListener("click", designShape);
         </script>
     </body>
 </html>
