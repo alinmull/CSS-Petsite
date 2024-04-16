@@ -67,7 +67,7 @@ tr, td {
 .hollow {
     width: 75px;
     height: 75px;
-    background-color: orange;
+    background-color: rgb(255, 255, 255);
     margin: auto;
     position: relative;
 }
