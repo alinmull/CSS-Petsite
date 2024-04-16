@@ -1,3 +1,9 @@
+:root {
+    --backgroundColor: rgb(0, 0, 0);
+    --mainPatternColor: rgb(255, 255, 255);
+    --secondaryPatternColor: rgb(124, 124, 124);
+}
+
 .shape {
     height: 100px;
     width: 100px;
@@ -6,11 +12,11 @@
 }
 
 .square {
-    background-color: red;
+    background-color: var(--backgroundColor);
 }
 
 .circle {
-    background-color: blue;
+    background-color: var(--backgroundColor);
     border-radius: 50%;
 }
 
@@ -19,23 +25,23 @@
     height: 0;
     border-left: 60px solid transparent;
     border-right: 60px solid transparent;
-    border-bottom: 100px solid yellow;
+    border-bottom: 100px solid var(--backgroundColor);
 }
 
 .trapezoid {
     height: 0;
-    border-bottom: 100px solid greenyellow;
+    border-bottom: 100px solid var(--backgroundColor);
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
 }
 
 .diamond {
-    background-color: magenta;
+    background-color: var(--backgroundColor);
     rotate: 45deg;
 }
 
 .para {
-    background-color: cyan;
+    background-color: var(--backgroundColor);
     transform: skew(25deg);
 }
 
@@ -49,17 +55,18 @@ tr, td {
     text-align: center;
 }
 
-.duocolor.square {
-    background-image: linear-gradient(red 0%, red 50%, orange 50%, orange 100%)
-}
-
-.duocolor.circle {
-    background-image: linear-gradient(blue 0%, blue 50%, aqua 50%, aqua 100%)
+.duocolor {
+    background-image: linear-gradient(
+            var(--backgroundColor) 0%, 
+            var(--backgroundColor) 50%, 
+            var(--mainPatternColor) 50%, 
+            var(--mainPatternColor) 100%
+        )
 }
 
 .polkadot {
-    background-image: radial-gradient(#000000 20%,transparent 20%), 
-        radial-gradient(#000000 20%, transparent 20%);
+    background-image: radial-gradient(var(--mainPatternColor) 20%,transparent 20%), 
+        radial-gradient(var(--mainPatternColor) 20%, transparent 20%);
     background-position: 0 0, 10px 10px;
     background-size: 20px 20px;
 }
